@@ -23,4 +23,4 @@ Things you may want to cover:
 
 * TestGuru entities
 
-Test, TestCategory, Question, Answer, User, Admin
+Test, Question, Answer, User, Admin
