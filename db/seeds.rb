@@ -41,8 +41,9 @@ Answer.create!([
 puts "Titles of tests of General category: #{Test.sorted_tests_names_of_category('General')}"
 puts "Titles of tests of Music category: #{Test.sorted_tests_names_of_category('Music')}"
 
-UserPassedTest.create!({ test_id: first_test.id, user_id: first_user.id })
-UserPassedTest.create!({ test_id: second_test.id, user_id: first_user.id })
+# Для tests_users:
+first_user.tests.push(first_test)
+first_user.tests.push(second_test)
 
 # Можно сменить level на 2, тогда будет выведен другой тест
 level = 1
