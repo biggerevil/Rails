@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 class Test < ApplicationRecord
+
+  belongs_to :category
+  has_many :questions
+  # has_and_belongs_to_many :users
+  has_many :tests_users
+  has_many :users, through: :tests_users
+  belongs_to :author, class_name: "User", foreign_key: "user_id"
+
   def self.sorted_tests_names_of_category(category_title)
     # Возвращаем массив всех названий тестов категории category_title
     Test
