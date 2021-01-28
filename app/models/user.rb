@@ -9,7 +9,7 @@ class User < ApplicationRecord
   # Возвращаем тесты конкретного уровня, пройденные пользователем
   def completed_tests_of_level(level)
     Test
-      .joins('JOIN test_passages ON tests.id = test_passages.test_id')
+      .joins(:test_passages)
       .where(level: level)
   end
 end
