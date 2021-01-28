@@ -12,37 +12,41 @@ first_user = User.create!({ nickname: 'lesserevil', mail: 'lesser@evil.com', pas
 
 general_category = Category.create!({ title: 'General' })
 
-first_test = Test.create!({ title: 'The very first test', level: 1, category_id: general_category.id, user_id: first_user.id })
+first_test = Test.create!({ title: 'The very first test', level: 1, category: general_category, author: first_user })
 
-first_question = Question.create!({ title: 'Which do you choose?', test_id: first_test.id })
+first_question = Question.create!({ title: 'Which do you choose?', test: first_test })
 Answer.create!([
-  { title: 'Lesser', correct: false, question_id: first_question.id },
-  { title: 'Bigger', correct: false, question_id: first_question.id },
-  { title: 'Prefer not to choose at all', correct: true, question_id: first_question.id }
+  { title: 'Lesser', correct: false, question: first_question },
+  { title: 'Bigger', correct: false, question: first_question },
+  { title: 'Prefer not to choose at all', correct: true, question: first_question }
 ])
 
-second_question = Question.create!({ title: 'Is cat alive?', test_id: first_test.id })
+second_question = Question.create!({ title: 'Is cat alive?', test: first_test })
 Answer.create!([
-  { title: 'Yes', correct: false, question_id: second_question.id },
-  { title: 'No', correct: false, question_id: second_question.id },
-  { title: 'I\'m not sure', correct: true, question_id: second_question.id }
+  { title: 'Yes', correct: false, question: second_question },
+  { title: 'No', correct: false, question: second_question },
+  { title: 'I\'m not sure', correct: true, question: second_question }
   ])
 
-music_category = Category.create!({ title: 'Music' })
-second_test = Test.create!({ title: 'Test about Led Zeppelin!', level: 2, category_id: music_category.id, user_id: first_user.id })
 
-third_question = Question.create!({ title: 'What is pictured on the cover of the "Led Zeppelin IV" album?', test_id: second_test.id })
+second_user = User.create!({ nickname: 'Second boy', mail: 'second@hand.com', password: 'secondman' })
+
+music_category = Category.create!({ title: 'Music' })
+second_test = Test.create!({ title: 'Test about Led Zeppelin!', level: 2, category: music_category, author: second_user })
+
+third_question = Question.create!({ title: 'What is pictured on the cover of the "Led Zeppelin IV" album?', test: second_test })
 Answer.create!([
-  { title: 'A young hunter', correct: false, question_id: third_question.id },
-  { title: 'A purple lion', correct: false, question_id: third_question.id },
-  { title: 'An old countryman', correct: true, question_id: third_question.id }
+  { title: 'A young hunter', correct: false, question: third_question },
+  { title: 'A purple lion', correct: false, question: third_question },
+  { title: 'An old countryman', correct: true, question: third_question }
   ])
 
 puts "Titles of tests of General category: #{Test.sorted_tests_names_of_category('General')}"
 puts "Titles of tests of Music category: #{Test.sorted_tests_names_of_category('Music')}"
 
-UserPassedTest.create!({ test_id: first_test.id, user_id: first_user.id })
-UserPassedTest.create!({ test_id: second_test.id, user_id: first_user.id })
+# Для tests_users:
+first_user.tests.push(first_test)
+first_user.tests.push(second_test)
 
 # Можно сменить level на 2, тогда будет выведен другой тест
 level = 1
