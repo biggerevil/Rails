@@ -12,10 +12,10 @@ class Test < ApplicationRecord
   # Возвращаем массив всех названий тестов категории category_title
   def self.sorted_tests_names_of_category(category_title)
 
-    mbJoinedTable = Test
-                      .joins(:category)
-                      .where(categories: {title: category_title})
-                      .order(title: :DESC)
-                      .pluck(:title)
+    Test
+      .joins(:category)
+      .where(categories: {title: category_title})
+      .order(title: :DESC)
+      .pluck(:title)
   end
 end
