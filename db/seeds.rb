@@ -28,8 +28,11 @@ Answer.create!([
   { title: 'I\'m not sure', correct: true, question_id: second_question.id }
   ])
 
+
+second_user = User.create!({ nickname: 'Second boy', mail: 'second@hand.com', password: 'secondman' })
+
 music_category = Category.create!({ title: 'Music' })
-second_test = Test.create!({ title: 'Test about Led Zeppelin!', level: 2, category_id: music_category.id, user_id: first_user.id })
+second_test = Test.create!({ title: 'Test about Led Zeppelin!', level: 2, category_id: music_category.id, user_id: second_user.id })
 
 third_question = Question.create!({ title: 'What is pictured on the cover of the "Led Zeppelin IV" album?', test_id: second_test.id })
 Answer.create!([
