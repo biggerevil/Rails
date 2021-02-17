@@ -41,6 +41,13 @@ Answer.create!([
   { title: 'An old countryman', correct: true, question: third_question }
   ])
 
+fourth_question = Question.create!({ title: 'Was Jimi Hendrix right-handed?', test: second_test })
+Answer.create!([
+  { title: 'Yes!', correct: false, question: fourth_question },
+  { title: 'No, man, he was left-handed', correct: true, question: fourth_question },
+  { title: 'He had three arms - right, left and guitar-arm', correct: false, question: fourth_question }
+  ])
+
 puts "Titles of tests of General category: #{Test.sorted_tests_names_of_category('General')}"
 puts "Titles of tests of Music category: #{Test.sorted_tests_names_of_category('Music')}"
 
