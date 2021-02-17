@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question
     else
-      render plain: "Не удалось создать вопрос. Ошибки = #{pp @question.errors.messages}"
+      render :new
     end
   end
 
