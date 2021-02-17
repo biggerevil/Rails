@@ -2,3 +2,4 @@ tmp
 log
 .DS_Store
 /db/*.sqlite3
+.byebug_history
