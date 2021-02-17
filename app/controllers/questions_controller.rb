@@ -13,8 +13,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    puts 'Trying to create!'
-    @question = @test.questions.create(question_params)
+    @question = @test.questions.build(question_params)
     if @question.save
       redirect_to @question
     else
@@ -33,7 +32,6 @@ class QuestionsController < ApplicationController
   private
 
   def find_test
-    puts "params[:test_id] = #{params[:test_id]}"
     @test = Test.find(params[:test_id])
   end
 
