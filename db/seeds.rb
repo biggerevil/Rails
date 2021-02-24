@@ -16,18 +16,17 @@ first_test = Test.create!({ title: 'The very first test', level: 1, category: ge
 
 first_question = Question.create!({ title: 'Which do you choose?', test: first_test })
 Answer.create!([
-  { title: 'Lesser', correct: false, question: first_question },
-  { title: 'Bigger', correct: false, question: first_question },
-  { title: 'Prefer not to choose at all', correct: true, question: first_question }
-])
+                 { title: 'Lesser', correct: false, question: first_question },
+                 { title: 'Bigger', correct: false, question: first_question },
+                 { title: 'Prefer not to choose at all', correct: true, question: first_question }
+               ])
 
 second_question = Question.create!({ title: 'Is cat alive?', test: first_test })
 Answer.create!([
-  { title: 'Yes', correct: false, question: second_question },
-  { title: 'No', correct: false, question: second_question },
-  { title: 'I\'m not sure', correct: true, question: second_question }
-  ])
-
+                 { title: 'Yes', correct: false, question: second_question },
+                 { title: 'No', correct: false, question: second_question },
+                 { title: 'I\'m not sure', correct: true, question: second_question }
+               ])
 
 second_user = User.create!({ nickname: 'Second boy', mail: 'second@hand.com', password: 'secondman' })
 
@@ -36,17 +35,17 @@ second_test = Test.create!({ title: 'Test about Led Zeppelin!', level: 2, catego
 
 third_question = Question.create!({ title: 'What is pictured on the cover of the "Led Zeppelin IV" album?', test: second_test })
 Answer.create!([
-  { title: 'A young hunter', correct: false, question: third_question },
-  { title: 'A purple lion', correct: false, question: third_question },
-  { title: 'An old countryman', correct: true, question: third_question }
-  ])
+                 { title: 'A young hunter', correct: false, question: third_question },
+                 { title: 'A purple lion', correct: false, question: third_question },
+                 { title: 'An old countryman', correct: true, question: third_question }
+               ])
 
 fourth_question = Question.create!({ title: 'Was Jimi Hendrix right-handed?', test: second_test })
 Answer.create!([
-  { title: 'Yes!', correct: false, question: fourth_question },
-  { title: 'No, man, he was left-handed', correct: true, question: fourth_question },
-  { title: 'He had three arms - right, left and guitar-arm', correct: false, question: fourth_question }
-  ])
+                 { title: 'Yes!', correct: false, question: fourth_question },
+                 { title: 'No, man, he was left-handed', correct: true, question: fourth_question },
+                 { title: 'He had three arms - right, left and guitar-arm', correct: false, question: fourth_question }
+               ])
 
 puts "Titles of tests of General category: #{Test.sorted_tests_names_of_category('General')}"
 puts "Titles of tests of Music category: #{Test.sorted_tests_names_of_category('Music')}"

@@ -1,12 +1,13 @@
-class QuestionsController < ApplicationController
+# frozen_string_literal: true
 
+class QuestionsController < ApplicationController
   before_action :find_test, only: %i[index new create]
   before_action :find_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def new
-    @question = Question.new()
+    @question = Question.new
   end
 
   def create
@@ -19,9 +20,7 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def show
-    
-  end
+  def show; end
 
   def destroy
     render plain: @question.destroy!.inspect
@@ -63,5 +62,4 @@ class QuestionsController < ApplicationController
   def rescue_with_question_not_found
     render plain: 'Не удалось найти вопрос'
   end
-
 end

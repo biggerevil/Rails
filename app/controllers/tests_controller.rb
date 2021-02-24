@@ -1,13 +1,13 @@
-class TestsController < ApplicationController
+# frozen_string_literal: true
 
+class TestsController < ApplicationController
   before_action :find_test, only: %i[show edit update destroy]
 
   def index
     @tests = Test.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @test = Test.new
@@ -23,8 +23,7 @@ class TestsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @test.update(test_params)
@@ -49,5 +48,4 @@ class TestsController < ApplicationController
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :user_id)
   end
-
 end
