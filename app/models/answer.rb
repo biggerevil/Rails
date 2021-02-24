@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Answer < ApplicationRecord
   belongs_to :question
 
@@ -9,8 +11,6 @@ class Answer < ApplicationRecord
   private
 
   def less_than_5_answers
-    if question.answers.count >= 4
-      errors.add(:answer, "Слишком много ответов.")
-    end
+    errors.add(:answer, 'Слишком много ответов.') if question.answers.count >= 4
   end
 end

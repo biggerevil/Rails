@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages, dependent: :destroy
-  has_many :created_tests, class_name: "Test", dependent: :destroy
+  has_many :created_tests, class_name: 'Test', dependent: :destroy
 
   validates :mail, presence: true
   validates :nickname, presence: true

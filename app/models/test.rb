@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class Test < ApplicationRecord
-
   belongs_to :category
-  belongs_to :author, class_name: "User", foreign_key: "user_id"
+  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
 
   has_many :questions, dependent: :destroy
   has_many :test_passages, dependent: :destroy
@@ -22,7 +21,7 @@ class Test < ApplicationRecord
   def self.sorted_tests_names_of_category(category_title)
     Test
       .joins(:category)
-      .where(categories: {title: category_title})
+      .where(categories: { title: category_title })
       .order(title: :DESC)
       .pluck(:title)
   end
