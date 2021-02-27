@@ -45,7 +45,6 @@ class TestsController < ApplicationController
     redirect_to @user.test_passage(@test)
   end
 
-
   private
 
   def find_test

@@ -12,9 +12,7 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if correct_answer?(answer_ids)
 
     self.current_question = next_question
     save!
@@ -40,14 +38,14 @@ class TestPassage < ApplicationRecord
     # оставляет из них только те, которые выбрал пользователь. А затем
     # считает их. То есть correct_answers.where(id: answer_ids).count считает,
     # сколько правильных ответов выбрал пользователь.
-    # 
+    #
     # И если кол-во правильных ответов вопроса совпадает с количеством
     # ПРАВИЛЬНЫХ ответов, выбранных пользователем, то вопрос считается
     # решённым верно.
     (correct_answers_count == correct_answers.where(id: answer_ids).count) &&
-    # И второе условие - что количество правильных ответов соответствует
-    # кол-ву выбранных пользователем ответов
-    correct_answers_count == answer_ids.count
+      # И второе условие - что количество правильных ответов соответствует
+      # кол-ву выбранных пользователем ответов
+      correct_answers_count == answer_ids.count
   end
 
   def correct_answers
@@ -61,5 +59,4 @@ class TestPassage < ApplicationRecord
     # 'id > ?' пишем для предотвращения SQL-инъекции
     test.questions.order(:id).where('id > ?', current_question.id).first
   end
-
 end
