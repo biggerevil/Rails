@@ -1,1 +1,14 @@
 <h1>The <%= @test_passage.test.title %> Test was completed!</h1>
+
+<% percentage = (@test_passage.correct_questions.to_f / @test_passage.test.questions.count * 100).to_i %>
+
+<% percentage >= 85 ? success = true : success = false %>
+
+<h2>Percentage: </h2><h2 class="<%= "#{success ? :red : :green}_number"%>"><%= percentage %></h2><h2>%</h2>
+<% if percentage >= 85 %>
+  <h3>Вы успешно прошли тест!</h3>
+<% else %>
+  <h3>Вы не прошли тест</h3>
+<% end %>
+
+<%= link_to 'Back', tests_path %>

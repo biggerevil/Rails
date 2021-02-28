@@ -1,5 +1,8 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
+<h3>Question number <%= @test_passage.current_question.id %>.
+	In all - <%= all_questions_helper(@test_passage) %></h3><br>
+
 <b>
 	<%= @test_passage.current_question.title %>
 </b>
@@ -13,4 +16,5 @@
   <% end %>
 
   <p><%= form.submit 'Next' %></p>
+  <p><%= link_to 'Back', tests_path %></p>
 <% end %>
