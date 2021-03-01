@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class TestPassage < ApplicationRecord
+  SUCCESS_PERCENT = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -24,7 +26,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success
-    @percentage >= 85
+    @percentage >= SUCCESS_PERCENT
   end
 
   def current_question_order_number
