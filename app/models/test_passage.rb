@@ -18,6 +18,21 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def procent
+    @percentage = (self.correct_questions.to_f / 
+                  self.test.questions.count * 100).to_i
+  end
+
+  def success
+    @percentage >= 85 ? true : false
+  end
+
+  def current_question_order_number
+    test_questions_ids = self.test.questions.pluck(:id)
+    index_of_current_q = test_questions_ids.find_index(current_question.id)
+    index_of_current_q += 1
+  end
+
   private
 
   def before_update_set_next_question
@@ -31,8 +46,7 @@ class TestPassage < ApplicationRecord
   def correct_answer?(answer_ids)
     correct_answers_count = correct_answers.count
 
-    (correct_answers_count == correct_answers.where(id: answer_ids).count) &&
-      correct_answers_count == answer_ids.count
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort unless answer_ids == nil
   end
 
   def correct_answers
