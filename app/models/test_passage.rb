@@ -19,12 +19,12 @@ class TestPassage < ApplicationRecord
   end
 
   def procent
-    @percentage = (self.correct_questions.to_f / 
+    @percentage = (self.correct_questions.to_f /
                   self.test.questions.count * 100).to_i
   end
 
   def success
-    @percentage >= 85 ? true : false
+    @percentage >= 85
   end
 
   def current_question_order_number
@@ -46,7 +46,7 @@ class TestPassage < ApplicationRecord
   def correct_answer?(answer_ids)
     correct_answers_count = correct_answers.count
 
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort unless answer_ids == nil
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort unless answer_ids.nil?
   end
 
   def correct_answers
