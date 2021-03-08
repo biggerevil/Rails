@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <p class="nav user">Welcome, <b><%= current_user.mail %></b> Guru</p>
+    <% end %>
+
     <%= yield %>
   </body>
 
