@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages, dependent: :destroy
   has_many :created_tests, class_name: 'Test', dependent: :destroy
 
-  validates :mail, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }
+  validates :mail, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :nickname, presence: true
 
   has_secure_password
