@@ -9,4 +9,10 @@ module ApplicationHelper
     link = "https://github.com/#{author}/#{repo}"
     link_to 'TestGuru', link, target: :_blank
   end
+
+  def flash_helper(message_type)
+    if (flash[message_type])
+      content_tag :p, flash[message_type], class: "flash #{message_type}"
+    end
+  end
 end
