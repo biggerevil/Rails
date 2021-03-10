@@ -8,7 +8,7 @@
 	<%= render @question.answers %>
 </ol>
 
-<%= link_to 'Back', test_path(@question.test_id) %>
+<%= link_to 'Back', admin_test_path(@question.test_id) %>
 <%= link_to 'Edit', edit_question_path(@question) %>
 <%= link_to 'Delete',
 			question_path(@question),

@@ -8,7 +8,7 @@
 #   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create!(name: 'Luke', movie: movies.first)
 
-first_user = User.create!({ nickname: 'lesserevil', mail: 'lesser@evil.com', password: 'WhichOneToChoose' })
+first_user = User.create!({ nickname: 'lesserevil', email: 'lesser@evil.com', password: 'WhichOneToChoose' })
 
 general_category = Category.create!({ title: 'General' })
 
@@ -28,7 +28,7 @@ Answer.create!([
                  { title: 'I\'m not sure', correct: true, question: second_question }
                ])
 
-second_user = User.create!({ nickname: 'Second boy', mail: 'second@hand.com', password: 'secondman' })
+second_user = User.create!({ nickname: 'Second boy', email: 'second@hand.com', password: 'secondman' })
 
 music_category = Category.create!({ title: 'Music' })
 second_test = Test.create!({ title: 'Test about Led Zeppelin!', level: 2, category: music_category, author: second_user })
