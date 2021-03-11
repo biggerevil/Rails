@@ -272,5 +272,5 @@ ru:
     result:
       header: "Тест %{title} успешно завершён!"
     gist:
-      success: "Gist успешно сохранён!"
+      success: "Gist успешно сохранён! Ссылка на него: %{link}"
       failure: "Во время сохранения gist произошла ошибка"
