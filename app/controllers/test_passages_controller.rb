@@ -23,7 +23,11 @@ class TestPassagesController < ApplicationController
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
 
-    flash_options = unless result.html_url.nil?
+    flash_options = if result.html_url.present?
+      new_gist = current_user.gists.build(question: @test_passage.current_question,
+                                            link: result.html_url,
+                                            gist_hash: result.id)
+      new_gist.save
       { notice: t('.success', link: result.html_url) }
     else
       { alert: t('.failure') }
