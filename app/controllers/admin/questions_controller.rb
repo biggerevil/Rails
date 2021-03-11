@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   before_action :find_test, only: %i[new create]
   before_action :find_question, only: %i[show destroy edit update]
 
@@ -14,13 +14,15 @@ class QuestionsController < ApplicationController
     @question = @test.questions.build(question_params)
 
     if @question.save
-      redirect_to @question
+      redirect_to [:admin, @question]
     else
       render :new
     end
   end
 
-  def show; end
+  def show
+    @answers = @question.answers
+  end
 
   def destroy
     render plain: @question.destroy!.inspect
@@ -32,7 +34,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to @question
+      redirect_to [:admin, @question]
     else
       @test = Test.find(@question.test_id)
       render :edit
@@ -42,7 +44,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
 
-    redirect_to test_path(@question.test_id)
+    redirect_to [:admin, @question.test]
   end
 
   private
