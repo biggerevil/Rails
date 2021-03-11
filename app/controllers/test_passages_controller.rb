@@ -28,6 +28,7 @@ class TestPassagesController < ApplicationController
                                             link: result.html_url,
                                             gist_hash: result.id)
       new_gist.save
+      
       { notice: t('.success', link: result.html_url) }
     else
       { alert: t('.failure') }
