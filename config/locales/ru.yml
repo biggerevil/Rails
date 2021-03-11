@@ -267,3 +267,10 @@ ru:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: вечера
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершён!"
+    gist:
+      success: "Gist успешно сохранён!"
+      failure: "Во время сохранения gist произошла ошибка"
