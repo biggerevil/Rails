@@ -3,7 +3,7 @@ class GistsController < ApplicationController
     @test_passage = TestPassage.find(create_params)
 
     gist_question_service = GistQuestionService.new(@test_passage.current_question)
-    
+
     # result is a Struct with :url, :gist_hash and :success
     result = gist_question_service.call
 
@@ -13,7 +13,7 @@ class GistsController < ApplicationController
                                           gist_hash: result.gist_hash)
       new_gist.save
       
-      { notice: t('.success', link: result.url) }
+      { notice: t('.success', link: helpers.gist_link(result.url)) }
     else
       { alert: t('.failure') }
     end

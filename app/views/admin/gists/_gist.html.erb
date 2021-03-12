@@ -1,5 +1,5 @@
 <tr>
 	<td><%= link_to "#{gist.question.title.truncate(25)}", admin_question_path(gist.question.id) %></td>
 	<td><%= gist.user.email %></td>
-	<td><%= link_to "#{gist.gist_hash}", gist.link, :target => :_blank, :rel => :nofollow %></td>
+	<td><%= gist_link(gist.link, gist.gist_hash) %></td>
 </tr>
