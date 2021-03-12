@@ -2,7 +2,7 @@
 
 class GistsController < ApplicationController
   def create
-    @test_passage = TestPassage.find(create_params)
+    @test_passage = TestPassage.find(params[:test_passage_id])
 
     gist_question_service = GistQuestionService.new(@test_passage.current_question)
 
@@ -21,11 +21,5 @@ class GistsController < ApplicationController
                     end
 
     redirect_to @test_passage, flash_options
-  end
-
-  private
-
-  def create_params
-    params.require(:test_passage_id)
   end
 end
