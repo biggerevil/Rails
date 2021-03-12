@@ -9,11 +9,11 @@ class GistsController < ApplicationController
 
     flash_options = if result.success
       new_gist = current_user.gists.build(question: @test_passage.current_question,
-                                          link: result.url,
+                                          link: result.html_url,
                                           gist_hash: result.gist_hash)
       new_gist.save
       
-      { notice: t('.success', link: helpers.gist_link(result.url)) }
+      { notice: t('.success', link: helpers.gist_link(result.html_url)) }
     else
       { alert: t('.failure') }
     end
