@@ -8,7 +8,8 @@
 #   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create!(name: 'Luke', movie: movies.first)
 
-first_user = User.create!({ nickname: 'lesserevil', email: 'lesser@evil.com', password: 'WhichOneToChoose' })
+first_user = User.create!({ nickname: 'lesserevil', email: 'lesser@evil.com', password: 'secretus' })
+first_user.update(type: 'Admin')
 
 general_category = Category.create!({ title: 'General' })
 

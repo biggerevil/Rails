@@ -271,6 +271,15 @@ ru:
   test_passages:
     result:
       header: "Тест %{title} успешно завершён!"
-    gist:
-      success: "Gist успешно сохранён!"
+  services:
+    gist_question:
+      gist_params:
+        description: "Вопрос теста %{test_title} из TestGuru"
+  gists:
+    create:
+      success_html: Gist успешно сохранён! <a href=%{link} target="_blank" rel="nofollow">Ссылка</a>
       failure: "Во время сохранения gist произошла ошибка"
+    index:
+      question: "Вопрос"
+      gist_url: "Ссылка на Gist"
+      user: "Пользователь"

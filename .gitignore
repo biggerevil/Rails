@@ -3,3 +3,8 @@ log
 .DS_Store
 /db/*.sqlite3
 .byebug_history
+/config/master.key
+
+/master.key.new
+config/new.cred.yml
+..rubocop.yml.un~

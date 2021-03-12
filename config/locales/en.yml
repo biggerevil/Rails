@@ -36,5 +36,14 @@ en:
     result:
       header: "The %{title} Test was Completed!"
     gist:
-      success: "Gist was succesfully created!"
+      success_html: Gist successfully saved ! <a href=%{link} target="_blank" rel="nofollow">Link</a>
       failure: "An error occured while saving gist"
+  services:
+    gist_question:
+      gist_params:
+        description: "A question from test %{test_title} from TestGuru"
+  gists:
+    index:
+      question: "Question"
+      gist_url: "Gist URL"
+      user: "User"
