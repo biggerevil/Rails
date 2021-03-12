@@ -1,11 +1,10 @@
 class GistQuestionService
-
   Answer = Struct.new(:html_url, :gist_hash, :success)
 
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = client || Octokit::Client.new(:access_token => Rails.application.credentials.GITHUB_TOKEN)
+    @client = client || Octokit::Client.new(access_token: Rails.application.credentials.GITHUB_TOKEN)
   end
 
   def call
@@ -33,5 +32,4 @@ class GistQuestionService
     content += @question.answers.pluck(:title)
     content.join("\n")
   end
-
 end

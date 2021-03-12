@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
-  get 'gists/create'
   root 'tests#index'
 
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
@@ -31,5 +29,4 @@ Rails.application.routes.draw do
     end
     resources :gists, only: :index
   end
-
 end
