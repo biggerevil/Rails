@@ -12,7 +12,7 @@ class GistsController < ApplicationController
                                                           gist_hash: result.gist_hash)
                       new_gist.save
 
-                      { notice: t('.success', link: helpers.gist_link(result.html_url)) }
+                      { notice: t('.success_html', link: result.html_url) }
                     else
                       { alert: t('.failure') }
                     end

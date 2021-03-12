@@ -36,7 +36,7 @@ en:
     result:
       header: "The %{title} Test was Completed!"
     gist:
-      success: "Gist was succesfully created! Its link: %{link}"
+      success_html: Gist successfully saved ! <a href=%{link} target="_blank" rel="nofollow">Link</a>
       failure: "An error occured while saving gist"
   services:
     gist_question:
