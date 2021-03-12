@@ -9,6 +9,7 @@ class GistQuestionService
     @client = client || Octokit::Client.new(access_token: Rails.application.credentials.GITHUB_TOKEN)
   end
 
+  # returns a Struct with :url, :gist_hash and :success
   def call
     created_gist = @client.create_gist(gist_params)
     success = created_gist.html_url.present? ? true : false

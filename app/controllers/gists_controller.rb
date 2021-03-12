@@ -6,7 +6,6 @@ class GistsController < ApplicationController
 
     gist_question_service = GistQuestionService.new(@test_passage.current_question)
 
-    # result is a Struct with :url, :gist_hash and :success
     result = gist_question_service.call
 
     flash_options = if result.success
