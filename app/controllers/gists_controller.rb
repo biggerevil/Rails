@@ -4,9 +4,7 @@ class GistsController < ApplicationController
   def create
     @test_passage = TestPassage.find(params[:test_passage_id])
 
-    gist_question_service = GistQuestionService.new(@test_passage.current_question)
-
-    result = gist_question_service.call
+    result = GistQuestionService.new(@test_passage.current_question).call
 
     flash_options = if result.success
                       new_gist = current_user.gists.build(question: @test_passage.current_question,
