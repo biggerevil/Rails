@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GistQuestionService
-  Answer = Struct.new(:html_url, :gist_hash, :success)
+  Result = Struct.new(:html_url, :gist_hash, :success)
 
   def initialize(question, client: nil)
     @question = question
@@ -14,7 +14,7 @@ class GistQuestionService
     created_gist = @client.create_gist(gist_params)
     success = created_gist.html_url.present? ? true : false
 
-    Answer.new(created_gist.html_url, created_gist.id, success)
+    Result.new(created_gist.html_url, created_gist.id, success)
   end
 
   private
