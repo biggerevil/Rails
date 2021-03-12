@@ -34,10 +34,6 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise', '~> 4.0'
 
-# NETWORKING
-
-gem 'faraday'
-
 # GITHUB CLIENT
 
 gem 'octokit', '~> 4.0'
