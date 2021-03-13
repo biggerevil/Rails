@@ -11,3 +11,23 @@
   // https://stackoverflow.com/a/20663798
   display: none !important;
 }
+
+.input-green {
+	border-color: green;
+}
+
+.input-red {
+	border-color: red;
+}
+
+.success:after {
+	content: '+';
+	color: green;
+	font-weight: 800;
+}
+
+.error:after {
+	content: '-';
+	color: red;
+	font-weight: 800;
+}
