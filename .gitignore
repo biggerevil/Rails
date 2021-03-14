@@ -8,3 +8,5 @@ log
 /master.key.new
 config/new.cred.yml
 ..rubocop.yml.un~
+node_modules/
+public/packs/
