@@ -3,15 +3,17 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-import "utilities/sorting.js"
-import PasswordConfirmation from "utilities/show_passwords_match.js"
-window.PasswordConfirmation = PasswordConfirmation
-import "utilities/password_confirmation_connect.js"
+import Rails from "@rails/ujs";
+import Turbolinks from "turbolinks";
+import * as ActiveStorage from "@rails/activestorage";
+import "channels";
+import SortingTable from "utilities/sorting_table.js";
+window.SortingTable = SortingTable;
+import PasswordConfirmation from "utilities/show_passwords_match.js";
+window.PasswordConfirmation = PasswordConfirmation;
+import "utilities/sorting_connect.js";
+import "utilities/password_confirmation_connect.js";
 
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+Rails.start();
+Turbolinks.start();
+ActiveStorage.start();
