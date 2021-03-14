@@ -7,21 +7,21 @@
 }
 
 .input-green {
-	border-color: green;
+  border-color: green;
 }
 
 .input-red {
-	border-color: red;
+  border-color: red;
 }
 
 .success:after {
-	content: '+';
-	color: green;
-	font-weight: 800;
+  content: '+';
+  color: green;
+  font-weight: 800;
 }
 
 .error:after {
-	content: '-';
-	color: red;
-	font-weight: 800;
+  content: '-';
+  color: red;
+  font-weight: 800;
 }
