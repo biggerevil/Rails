@@ -13,6 +13,9 @@ import PasswordConfirmation from "utilities/show_passwords_match.js";
 window.PasswordConfirmation = PasswordConfirmation;
 import "utilities/sorting_connect.js";
 import "utilities/password_confirmation_connect.js";
+import "utilities/form_inline.js";
+
+require('jquery')
 
 Rails.start();
 Turbolinks.start();

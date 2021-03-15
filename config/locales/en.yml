@@ -47,3 +47,7 @@ en:
       question: "Question"
       gist_url: "Gist URL"
       user: "User"
+  admin:
+    tests:
+      form_inline:
+        submit: "OK"

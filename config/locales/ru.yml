@@ -283,3 +283,7 @@ ru:
       question: "Вопрос"
       gist_url: "Ссылка на Gist"
       user: "Пользователь"
+  admin:
+    tests:
+      form_inline:
+        submit: "ОК"
