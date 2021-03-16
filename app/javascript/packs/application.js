@@ -16,8 +16,6 @@ import "utilities/password_confirmation_connect.js";
 import "utilities/form_inline.js";
 import "utilities/test_progress_bar.js";
 
-require("jquery");
-
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
