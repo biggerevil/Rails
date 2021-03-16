@@ -1,6 +1,15 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
-<h3>Question number <%= @test_passage.current_question_order_number %>/<%= all_questions_helper(@test_passage) %></h3><br>
+<h3>Question number <%= @test_passage.current_question_order_number %>/<%= all_questions_helper(@test_passage) %></h3>
+
+<%= content_tag :progress, 
+                class: 'progress-bar', 
+                id: 'progress-bar-id',
+                data: { 
+                  current_question_number: @test_passage.current_question_order_number,
+                  total_test_questions: @test_passage.test.questions.count
+                } do %>
+<% end %>
 
 <p>
 	<b><%= @test_passage.current_question.title %></b>

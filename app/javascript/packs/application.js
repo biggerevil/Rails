@@ -14,8 +14,7 @@ window.PasswordConfirmation = PasswordConfirmation;
 import "utilities/sorting_connect.js";
 import "utilities/password_confirmation_connect.js";
 import "utilities/form_inline.js";
-
-require('jquery')
+import "utilities/test_progress_bar.js";
 
 Rails.start();
 Turbolinks.start();
