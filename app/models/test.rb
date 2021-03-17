@@ -12,6 +12,7 @@ class Test < ApplicationRecord
                     uniqueness: { scope: :level }
 
   validates :level, numericality: { only_integer: true, greater_than: 0 }
+  validates :time_to_pass_in_minutes, numericality: { greater_than: 0 }
 
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
