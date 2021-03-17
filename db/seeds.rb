@@ -13,7 +13,7 @@ first_user.update(type: 'Admin')
 
 general_category = Category.create!({ title: 'General' })
 
-first_test = Test.create!({ title: 'The very first test', level: 1, category: general_category, author: first_user })
+first_test = Test.create!({ title: 'The very first test', level: 1, category: general_category, author: first_user, time_to_pass_in_minutes: 15 })
 
 first_question = Question.create!({ title: 'Which do you choose?', test: first_test })
 Answer.create!([
@@ -32,7 +32,7 @@ Answer.create!([
 second_user = User.create!({ nickname: 'Second boy', email: 'second@hand.com', password: 'secondman' })
 
 music_category = Category.create!({ title: 'Music' })
-second_test = Test.create!({ title: 'Test about Led Zeppelin!', level: 2, category: music_category, author: second_user })
+second_test = Test.create!({ title: 'Test about Led Zeppelin!', level: 2, category: music_category, author: second_user, time_to_pass_in_minutes: 15 })
 
 third_question = Question.create!({ title: 'What is pictured on the cover of the "Led Zeppelin IV" album?', test: second_test })
 Answer.create!([

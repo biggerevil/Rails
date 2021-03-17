@@ -21,5 +21,10 @@
   	<%= form.collection_select :user_id, User.all, :id, :nickname, prompt: true %>
   </p>
 
+  <p>
+    <%= form.label :time_to_pass_in_minutes %>:
+    <%= form.number_field :time_to_pass_in_minutes %>
+  </p>
+
   <p><%= form.submit %></p>
 <% end %>
