@@ -11,7 +11,7 @@ class TestPassage < ApplicationRecord
   before_update :before_update_set_next_question
 
   def completed?
-    current_question.nil?
+    current_question.nil? || time_run_out?
   end
 
   def accept!(answer_ids)
@@ -35,7 +35,15 @@ class TestPassage < ApplicationRecord
     index_of_current_q += 1
   end
 
+  def time_remaining
+    self.test.time_to_pass_in_seconds - (Time.now - self.created_at)
+  end
+
   private
+
+  def time_run_out?
+    Time.now - self.created_at > (self.test.time_to_pass_in_seconds)
+  end
 
   def before_update_set_next_question
     self.current_question = next_question
