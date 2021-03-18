@@ -1,0 +1,2 @@
+class BadgeDepartmentService
+end
