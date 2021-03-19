@@ -1,0 +1,18 @@
+<tr>
+  <td class="align-middle"><%= badge.name %></td>
+  <td class="align-middle"><%= link_to 'Image link', badge.image_link, rel: 'nofollow', target: '_blank' %></td>
+  <td class="align-middle"><%= badge.rule_type %></td>
+  <td class="align-middle"><%= badge.rule_value %></td>
+  <td class="align-middle">
+    <%= link_to 'Show', admin_badge_path(badge)%>
+  </td>
+  <td class="align-middle">
+    <%= link_to 'Edit', edit_admin_badge_path(badge)%>
+  </td>
+  <td class="align-middle">
+    <%= link_to 'Delete', 
+          admin_badge_path(badge),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>
