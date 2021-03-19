@@ -51,9 +51,26 @@ Answer.create!([
 puts "Titles of tests of General category: #{Test.sorted_tests_names_of_category('General')}"
 puts "Titles of tests of Music category: #{Test.sorted_tests_names_of_category('Music')}"
 
-# Для tests_users:
-first_user.tests.push(first_test)
-first_user.tests.push(second_test)
+Badge.create!([
+                {
+                  name: 'For passing test on first try!',
+                  image_link: 'https://uploads.sitepoint.com/wp-content/uploads/2014/11/1415490092badge.png',
+                  rule_type: :on_first_try,
+                  rule_value: nil
+                },
+                {
+                  name: 'For passing all tests from Music category!',
+                  image_link: 'https://i1.sndcdn.com/avatars-7iQWSjqvKZz1YIo9-RAP1bQ-t500x500.jpg',
+                  rule_type: :passed_all_tests_of_category,
+                  rule_value: 'Music'
+                },
+                {
+                  name: 'For passing all tests of level 1!',
+                  image_link: 'https://thumbs.dreamstime.com/b/знак-или-печать-beginner-на-белой-предпосылке-иллюстрации-вектора-145001246.jpg',
+                  rule_type: :passed_all_tests_of_level,
+                  rule_value: 1
+                }
+              ])
 
 # Можно сменить level на 2, тогда будет выведен другой тест
 level = 1
