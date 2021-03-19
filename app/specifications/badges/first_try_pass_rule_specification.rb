@@ -1,7 +1,11 @@
 module Badges
   class FirstTryPassRuleSpecification < AbstractRuleSpecification
     def satisfies?
-      true || false
+      attempts = TestPassage.where(
+                                   test: @test_passage.test,
+                                   user: @test_passage.user
+                                  )
+      attempts.count == 1 && attempts.first.success
     end
   end
 end
