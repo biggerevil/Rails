@@ -28,6 +28,14 @@ class TestPassage < ApplicationRecord
     procent >= SUCCESS_PERCENT
   end
 
+  def mark_as_passed
+    if self.success
+      self.update(passed: true)
+    else
+      self.update(passed: false)
+    end
+  end
+
   def current_question_order_number
     test_questions_ids = self.test.questions.pluck(:id)
     index_of_current_q = test_questions_ids.find_index(current_question.id)
@@ -63,6 +71,8 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
+    unless current_question == nil
+      test.questions.order(:id).where('id > ?', current_question.id).first
+    end
   end
 end
