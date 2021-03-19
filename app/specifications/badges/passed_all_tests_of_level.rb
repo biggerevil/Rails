@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Badges
   class PassedAllTestsOfLevel < AbstractRuleSpecification
     def satisfies?

@@ -29,10 +29,10 @@ class TestPassage < ApplicationRecord
   end
 
   def mark_as_passed
-    if self.success
-      self.update(passed: true)
+    if success
+      update(passed: true)
     else
-      self.update(passed: false)
+      update(passed: false)
     end
   end
 
@@ -43,13 +43,13 @@ class TestPassage < ApplicationRecord
   end
 
   def time_remaining
-    self.test.time_to_pass_in_seconds - (Time.now - self.created_at)
+    self.test.time_to_pass_in_seconds - (Time.now - created_at)
   end
 
   private
 
   def time_run_out?
-    Time.now - self.created_at > (self.test.time_to_pass_in_seconds)
+    Time.now - created_at > (self.test.time_to_pass_in_seconds)
   end
 
   def before_update_set_next_question
@@ -71,8 +71,6 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    unless current_question == nil
-      test.questions.order(:id).where('id > ?', current_question.id).first
-    end
+    test.questions.order(:id).where('id > ?', current_question.id).first unless current_question.nil?
   end
 end

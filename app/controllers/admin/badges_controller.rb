@@ -1,5 +1,6 @@
-class Admin::BadgesController < Admin::BaseController
+# frozen_string_literal: true
 
+class Admin::BadgesController < Admin::BaseController
   before_action :find_badge, only: %i[show edit update destroy]
 
   def index
@@ -47,5 +48,4 @@ class Admin::BadgesController < Admin::BaseController
   def find_badge
     @badge = Badge.find(params[:id])
   end
-
 end

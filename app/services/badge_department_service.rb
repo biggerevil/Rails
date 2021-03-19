@@ -1,5 +1,6 @@
-class BadgeDepartmentService
+# frozen_string_literal: true
 
+class BadgeDepartmentService
   RULES = {
     'on_first_try' => Badges::FirstTryPassRuleSpecification,
     'passed_all_tests_of_category' => Badges::PassedAllTestsOfCategory,
@@ -22,5 +23,4 @@ class BadgeDepartmentService
   def add_badges(badge)
     @test_passage.user.badges << badge
   end
-
 end
