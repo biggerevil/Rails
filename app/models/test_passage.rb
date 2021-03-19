@@ -21,12 +21,11 @@ class TestPassage < ApplicationRecord
   end
 
   def procent
-    @percentage = (self.correct_questions.to_f /
-                  self.test.questions.count * 100).to_i
+    (self.correct_questions.to_f / self.test.questions.count * 100).to_i
   end
 
   def success
-    @percentage >= SUCCESS_PERCENT
+    procent >= SUCCESS_PERCENT
   end
 
   def current_question_order_number
