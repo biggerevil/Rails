@@ -26,7 +26,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success
-    procent >= SUCCESS_PERCENT
+    @percentage >= SUCCESS_PERCENT
   end
 
   def current_question_order_number
