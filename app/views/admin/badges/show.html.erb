@@ -1,0 +1,23 @@
+<p>
+  <strong>Name</strong>
+  <%= @badge.name %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= link_to 'Image link', @badge.image_link, rel: 'nofollow', target: '_blank' %>
+</p>
+<%= image_tag(@badge.image_link, width: "20%") %>
+
+<p>
+  <strong>Rule type:</strong>
+  <%= @badge.rule_type %>
+</p>
+
+<p>
+  <strong>Rule value:</strong>
+  <%= @badge.rule_value %>
+</p>
+
+<%= link_to 'Edit', edit_admin_badge_path(@badge) %>
+<%= link_to 'Back', admin_badges_path %>

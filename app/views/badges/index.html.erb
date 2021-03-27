@@ -1,0 +1,22 @@
+<h1>All Badges</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Image link</th>
+  </tr>
+
+  <%= render @badges %>
+
+</table>
+
+<h1>Earned badges</h1>
+
+<table class="table">
+  <tr>
+  </tr>
+
+  <%= render partial: 'user_badge', collection: @user_badges %>
+</table>
+
+<%= link_to 'Back', tests_path %>

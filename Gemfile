@@ -40,9 +40,9 @@ gem 'octokit', '~> 4.0'
 
 # UI
 
-gem 'octicons_helper'
-gem 'jquery-rails'
 gem 'bootstrap'
+gem 'jquery-rails'
+gem 'octicons_helper'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

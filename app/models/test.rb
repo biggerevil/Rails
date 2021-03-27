@@ -19,7 +19,7 @@ class Test < ApplicationRecord
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
   def time_to_pass_in_seconds
-    self.time_to_pass_in_minutes * 60
+    time_to_pass_in_minutes * 60
   end
 
   # Возвращаем массив всех названий тестов категории category_title

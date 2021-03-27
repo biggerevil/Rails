@@ -21,12 +21,19 @@ class TestPassage < ApplicationRecord
   end
 
   def procent
-    @percentage = (self.correct_questions.to_f /
-                  self.test.questions.count * 100).to_i
+    (self.correct_questions.to_f / self.test.questions.count * 100).to_i
   end
 
   def success
-    @percentage >= SUCCESS_PERCENT
+    procent >= SUCCESS_PERCENT
+  end
+
+  def mark_as_passed
+    if success
+      update(passed: true)
+    else
+      update(passed: false)
+    end
   end
 
   def current_question_order_number
@@ -36,13 +43,13 @@ class TestPassage < ApplicationRecord
   end
 
   def time_remaining
-    self.test.time_to_pass_in_seconds - (Time.now - self.created_at)
+    self.test.time_to_pass_in_seconds - (Time.now - created_at)
   end
 
   private
 
   def time_run_out?
-    Time.now - self.created_at > (self.test.time_to_pass_in_seconds)
+    Time.now - created_at > (self.test.time_to_pass_in_seconds)
   end
 
   def before_update_set_next_question
@@ -64,6 +71,6 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
+    test.questions.order(:id).where('id > ?', current_question.id).first unless current_question.nil?
   end
 end

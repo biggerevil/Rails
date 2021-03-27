@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 class Admin::TestsController < Admin::BaseController
-
   before_action :set_tests, only: %i[index update_inline]
   before_action :find_test, only: %i[show edit update destroy start update_inline]
 
-  def index
-  end
+  def index; end
 
   def show; end
 
@@ -65,10 +63,10 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, 
-                                 :level, 
-                                 :category_id, 
-                                 :user_id, 
+    params.require(:test).permit(:title,
+                                 :level,
+                                 :category_id,
+                                 :user_id,
                                  :time_to_pass_in_minutes)
   end
 end
